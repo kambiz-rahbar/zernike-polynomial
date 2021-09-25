@@ -7,7 +7,6 @@ x = -1 : 0.01 : 1;
 y = -1 : 0.02 : 1;
 [X, Y] = meshgrid(x, y);
 [theta, r] = cart2pol(X, Y);
-circle_idx = r<=1;
 
 %% generate radial/azimuthal degree
 OSA_idx_array = zeros(36, 3);
@@ -24,6 +23,8 @@ disp(idx_table);
 
 %% generate zernike data
 OSA_index = 3;
+
+circle_idx = r<=1;
 
 Z = nan(size(circle_idx));
 Z(circle_idx) = zernike_fcn(OSA_index, r(circle_idx), theta(circle_idx));
