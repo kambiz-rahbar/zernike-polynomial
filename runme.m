@@ -24,8 +24,6 @@ disp(idx_table);
 
 %% generate zernike data
 OSA_index = 3;
-radial_degree = OSA_idx_array(OSA_index+1, 2);
-azimuthal_degree = OSA_idx_array(OSA_index+1, 3);
 
 Z = nan(size(circle_idx));
 Z(circle_idx) = zernike_fcn(OSA_index, r(circle_idx), theta(circle_idx));
@@ -41,5 +39,4 @@ ylabel('y');
 zlabel('z');
 axis square;
 grid minor;
-
-title(['OSA index: ' num2str(OSA_index) '  ( Z_{' num2str(radial_degree) '}^{' num2str(azimuthal_degree) '} )']);
+title(['OSA index: ' num2str(OSA_index) '  ( Z_{' num2str(OSA_idx_array(OSA_index+1, 2)) '}^{' num2str(OSA_idx_array(OSA_index+1, 3)) '} )']);
